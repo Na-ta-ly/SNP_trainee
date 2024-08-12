@@ -4,7 +4,7 @@ from task_11 import Dessert
 
 class JellyBean(Dessert):
     def __init__(self, name: Optional[str] = None,
-                 calories: Optional[int] = 0,
+                 calories: Optional[int | float | str] = 0,
                  flavor: Optional[str] = None):
         super().__init__(name, calories)
         self.flavor = flavor

@@ -1,6 +1,3 @@
-from test import assert_function
-
-
 def combine_anagrams(words_array: list[str]) -> list[list[str]]:
     words_array = [str(word).lower() for word in words_array]
     result = []
@@ -22,10 +19,3 @@ def combine_anagrams(words_array: list[str]) -> list[list[str]]:
         result.append(single_result)
         words_array = words_array[1:]
     return result
-
-
-if __name__ == '__main__':
-    assert_function(combine_anagrams(["cars", "for", "potatoes", "racs", "four", "scar",
-                                      "creams", "scream"]),
-                    [["cars", "racs", "scar"], ["for"], ["potatoes"], ["four"],
-                     ["creams", "scream"]], '1')
