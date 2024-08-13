@@ -2,7 +2,7 @@ from typing import Optional
 
 
 class Dessert:
-    def __init__(self, name: Optional[str] = None, calories: Optional[int | float] = 0):
+    def __init__(self, name: Optional[str] = None, calories: Optional[int | float | str] = 0):
         self.name = name
         self.calories = calories
 
@@ -15,16 +15,12 @@ class Dessert:
         self.__name = str(name)
 
     @property
-    def calories(self) -> int:
+    def calories(self) -> [int | float | str]:
         return self.__calories
 
     @calories.setter
-    def calories(self, calories: int) -> None:
-        if isinstance(calories, (int, float)):
-            self.__calories = calories
-        else:
-            self.__calories = 0
-            print('calories should be int or float, so it was set to 0')
+    def calories(self, calories: [int | float | str]) -> None:
+        self.__calories = calories
 
     def is_healthy(self) -> bool:
         if self.__calories < 200:

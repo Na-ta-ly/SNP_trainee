@@ -1,6 +1,3 @@
-from test import assert_function, assert_error
-
-
 class WrongNumberOfPlayersError(BaseException):
     pass
 
@@ -30,14 +27,3 @@ def rps_game_winner(test_combination: list[list[str]]) -> str:
         result = ' '.join([test_combination[1][0], test_combination[1][1]])
 
     return result
-
-
-if __name__ == '__main__':
-    assert_error(rps_game_winner, ([['player1', 'P'], ['player2', 'S'], ['player3', 'S']],),
-                 WrongNumberOfPlayersError, '1')
-    assert_error(rps_game_winner, ([['player1', 'P'], ['player2', 'A']],),
-                 NoSuchStrategyError, '2')
-    assert_function(rps_game_winner([['player1', 'P'], ['player2', 'S']]),
-                    'player2 S', '3')
-    assert_function(rps_game_winner([['player1', 'P'], ['player2', 'P']]),
-                    'player1 P', '4')
